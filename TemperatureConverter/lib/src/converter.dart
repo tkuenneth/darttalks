@@ -6,9 +6,9 @@ library converter;
 
 import 'package:intl/intl.dart';
 
-const String degreesCelsius = "\u00B0C";
-const String degreesFahrenheit = "\u00B0F";
-const String kelvin = "K";
+const String unitDegreesCelsius = "\u00B0C";
+const String unitDegreesFahrenheit = "\u00B0F";
+const String unitKelvin = "K";
 
 final NumberFormat _f = new NumberFormat.decimalPattern("de_DE");
 
@@ -26,13 +26,13 @@ double celsiusToFahrenheit(double celsius) => (celsius * 1.8) + 32;
 
 double fahrenheitToCelsius(double fahrenheit) => (fahrenheit - 32) * 5 / 9;
 
-String celsiusToString(double celsius) => doubleToString(celsius, degreesCelsius);
+String celsiusToString(double celsius) => _doubleToString(celsius, unitDegreesCelsius);
 
-String fahrenheitToString(double fahrenheit) => doubleToString(fahrenheit, degreesFahrenheit);
+String fahrenheitToString(double fahrenheit) => _doubleToString(fahrenheit, unitDegreesFahrenheit);
 
-String kelvinToString(double kelvin) => doubleToString(kelvin, kelvin);
+String kelvinToString(double kelvin) => _doubleToString(kelvin, unitKelvin);
 
-String doubleToString(double val, String suffix) {
+String _doubleToString(double val, String suffix) {
   var rounded = val.round();
   // Could be implemented nicer using intl
   return "${_f.format(val == rounded ? rounded : val)} $suffix";
