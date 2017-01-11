@@ -4,11 +4,15 @@
 
 library converter;
 
+import 'package:intl/intl.dart';
+
 const String DEGREES_CELSIUS = "\u00B0C";
 const String DEGREES_FAHRENHEIT = "\u00B0F";
 const String KELVIN = "K";
 
-double stringToDouble(String s) => double.parse(s);
+final NumberFormat _f = new NumberFormat.decimalPattern("de_DE");
+
+double stringToDouble(String s) => _f.parse(s);
 
 double celsiusToKelvin(double celsius) => 273.15 + celsius;
 
@@ -30,5 +34,6 @@ String kelvinToString(double kelvin) => doubleToString(kelvin, KELVIN);
 
 String doubleToString(double val, String suffix) {
   var rounded = val.round();
-  return "${val == rounded ? rounded : val} $suffix";
+  // Could be implemented nicer using intl
+  return "${_f.format(val == rounded ? rounded : val)} $suffix";
 }

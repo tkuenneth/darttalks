@@ -1,15 +1,15 @@
-import 'package:temperatureconverter/converter.dart';
+import 'package:temperatureconverter/src/converter.dart';
 
 main(List<String> args) {
   for (var arg in args) {
     var d = stringToDouble(arg);
-    print("${celsiusToString(d)} = ${celsiusToFahrenheit(d)} $DEGREES_FAHRENHEIT");
-    print("${celsiusToString(d)} = ${celsiusToKelvin(d)} $KELVIN");
+    print("${celsiusToString(d)} = ${fahrenheitToString(celsiusToFahrenheit(d))}");
+    print("${celsiusToString(d)} = ${kelvinToString(celsiusToKelvin(d))}");
 
-    print("${fahrenheitToString(d)} = ${fahrenheitToCelsius(d)} $DEGREES_CELSIUS");
-    print("${fahrenheitToString(d)} = ${fahrenheitToKelvin(d)} $KELVIN");
+    print("${fahrenheitToString(d)} = ${celsiusToString(fahrenheitToCelsius(d))}");
+    print("${fahrenheitToString(d)} = ${kelvinToString(fahrenheitToKelvin(d))}");
 
-    print("${kelvinToString(d)} = ${kelvinToCelsius(d)} $DEGREES_CELSIUS");
-    print("${kelvinToString(d)} = ${kelvinToFahrenheit(d)} $DEGREES_FAHRENHEIT");
+    print("${kelvinToString(d)} = ${celsiusToString(kelvinToCelsius(d))}");
+    print("${kelvinToString(d)} = ${fahrenheitToString(kelvinToFahrenheit(d))}");
   }
 }
