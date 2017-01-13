@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script defer type="application/dart" src="main3.dart"></script>
+    <script defer src="packages/browser/dart.js"></script>
+    <title>Temperature Converter</title>
+</head>
+
+<body>
+    <h1>Temperature Converter</h1>
+    <form>
+        Input temperature<br>
+        <input type="text" id="temperature"><br>
+        <fieldset>
+            <legend>Input unit</legend>
+            <input type="radio" name="inUnit" value="degreesCelsius" checked> &deg;C
+            <input type="radio" name="inUnit" value="degreesFahrenheit"> &deg;F
+            <input type="radio" name="inUnit" value="kelvin"> K
+        </fieldset>
+        <fieldset>
+            <legend>Output unit</legend>
+            <input type="radio" name="outUnit" value="degreesCelsius"> &deg;C
+            <input type="radio" name="outUnit" value="degreesFahrenheit" checked> &deg;F
+            <input type="radio" name="outUnit" value="kelvin"> K
+        </fieldset>
+        <input type="submit" value="Calculate" id="submitForm">
+    </form>
+    <p id="result" />
+</body>
+
+</html>
