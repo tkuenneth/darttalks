@@ -1,3 +1,7 @@
+// Copyright (c) 2017, Thomas Kuenneth.
+// All rights reserved. Use of this source code is governed by the
+// GNU General Public license version 3 that can be found in the LICENSE file.
+
 import 'dart:html';
 
 import 'package:temperatureconverter/src/model.dart';
@@ -43,6 +47,8 @@ void submitForm(Event e) {
 
   _model.calculateOutTemperature();
   _result.text = _model.outTemperatureAsString;
+
+  _input.focus();
 }
 
 _enableOrDisAble() {

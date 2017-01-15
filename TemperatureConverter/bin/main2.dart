@@ -1,3 +1,7 @@
+// Copyright (c) 2017, Thomas Kuenneth.
+// All rights reserved. Use of this source code is governed by the
+// GNU General Public license version 3 that can be found in the LICENSE file.
+
 import 'package:temperatureconverter/src/converter.dart';
 import 'package:temperatureconverter/src/model.dart';
 
