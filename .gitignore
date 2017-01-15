@@ -2,3 +2,6 @@
 .vscode/
 .packages
 .pub/
+.idea/workspace.xml
+.idea/tasks.xml
+
