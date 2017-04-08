@@ -5,7 +5,7 @@ import 'model.dart';
 const _appName = 'Temperature Converter';
 const _temperature = 'Temperature';
 const EdgeInsets edgeInsetsLeftOnly =
-    const EdgeInsets.fromLTRB(18.0, 0.0, 0.0, 0.0);
+const EdgeInsets.fromLTRB(18.0, 0.0, 0.0, 0.0);
 const _calculate = 'Calculate';
 
 void main() {
@@ -23,9 +23,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
   final String title;
+
+  MyHomePage({Key key, this.title}) : super(key: key);
 
   @override
   _MyHomePageState createState() => new _MyHomePageState();
@@ -33,26 +33,38 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final Model model = new Model();
-  var _currentInput = const InputValue();
+  String strTemperature;
 
   @override
   Widget build(BuildContext context) {
+    final calculate = new FlatButton(
+        child: new Text(_calculate),
+        onPressed: () {
+          setState(() {
+            model.inTemperature = stringToDouble(strTemperature);
+            model.calculateOutTemperature();
+          });
+        });
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(config.title),
-      ),
-      body: new Block(
+        appBar: new AppBar(
+          title: new Text(config.title),
+        ),
+        body: new Container(
           padding: new EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
-          children: <Widget>[
+          child: new Column(children: <Widget>[
             new Row(children: <Widget>[
               new Expanded(
-                  child: new Input(
-                      labelText: _temperature,
-                      value: _currentInput,
-                      onChanged: (input) => _currentInput = input)),
+                  child: new TextField(
+                      decoration: new InputDecoration(hintText: _temperature),
+                      onChanged: (newValue) {
+                        setState(() {
+                          strTemperature = newValue.trim();
+                          // calculate.enabled = strTemperature.length > 0;
+                        });
+                      })),
               new Container(
                   padding: edgeInsetsLeftOnly,
-                  child: new DropdownButton(
+                  child: new DropdownButton<temperatureUnit>(
                       items: createUnit(),
                       onChanged: (temperatureUnit newValue) {
                         setState(() {
@@ -65,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
               new Text("Convert to"),
               new Container(
                   padding: edgeInsetsLeftOnly,
-                  child: new DropdownButton(
+                  child: new DropdownButton<temperatureUnit>(
                       items: createUnit(),
                       onChanged: (temperatureUnit newValue) {
                         setState(() {
@@ -74,18 +86,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                       value: model.outUnit)),
             ]),
-            new FlatButton(
-                child: new Text(_calculate),
-                onPressed: () {
-                  setState(() {
-                    double inTemp = stringToDouble(_currentInput.text);
-                    model.inTemperature = inTemp;
-                    model.calculateOutTemperature();
-                  });
-                }),
+            calculate,
             new Text(model.outTemperatureAsString)
           ]),
-    );
+        ));
   }
 
   List<DropdownMenuItem> createUnit() {
