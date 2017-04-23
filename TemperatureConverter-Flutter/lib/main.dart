@@ -5,8 +5,9 @@ import 'model.dart';
 const _appName = 'Temperature Converter';
 const _temperature = 'Temperature';
 const EdgeInsets edgeInsetsLeftOnly =
-const EdgeInsets.fromLTRB(18.0, 0.0, 0.0, 0.0);
+    const EdgeInsets.fromLTRB(18.0, 0.0, 0.0, 0.0);
 const _calculate = 'Calculate';
+const _convertTo = "Convert to";
 
 void main() {
   runApp(new MyApp());
@@ -33,21 +34,35 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final Model model = new Model();
-  String strTemperature;
+  String strTemperature = "";
 
   @override
   Widget build(BuildContext context) {
+    var _m = null;
+    var _valid = false;
+    if (strTemperature.length > 0) {
+      try {
+        stringToDouble(strTemperature);
+        _valid = true;
+      } catch (ex) {
+        _m = "no valid input";
+      }
+    }
+    final _deco = new InputDecoration(hintText: _temperature, errorText: _m);
     final calculate = new FlatButton(
         child: new Text(_calculate),
-        onPressed: () {
-          setState(() {
-            model.inTemperature = stringToDouble(strTemperature);
-            model.calculateOutTemperature();
-          });
-        });
+        onPressed: _valid
+            ? () {
+                setState(() {
+                  model.inTemperature = stringToDouble(strTemperature);
+                  model.calculateOutTemperature();
+                });
+              }
+            : null);
+
     return new Scaffold(
         appBar: new AppBar(
-          title: new Text(config.title),
+          title: new Text(widget.title),
         ),
         body: new Container(
           padding: new EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
@@ -55,7 +70,9 @@ class _MyHomePageState extends State<MyHomePage> {
             new Row(children: <Widget>[
               new Expanded(
                   child: new TextField(
-                      decoration: new InputDecoration(hintText: _temperature),
+                      decoration: _deco,
+                      maxLines: 1,
+                      autofocus: true,
                       onChanged: (newValue) {
                         setState(() {
                           strTemperature = newValue.trim();
@@ -74,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       value: model.inUnit))
             ]),
             new Row(children: <Widget>[
-              new Text("Convert to"),
+              new Text(_convertTo),
               new Container(
                   padding: edgeInsetsLeftOnly,
                   child: new DropdownButton<temperatureUnit>(
