@@ -4,3 +4,7 @@ dependencies:
   flutter:
     sdk: flutter
   intl: ^0.14.0
+
+flutter:
+  uses-material-design: true
+  
