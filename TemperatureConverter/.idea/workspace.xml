@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a27c8518-6b40-400c-a7fb-5c45541d7366" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TemperatureConverter.iml" afterPath="$PROJECT_DIR$/TemperatureConverter.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/converter.dart" afterPath="$PROJECT_DIR$/lib/src/converter.dart" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/src/model.dart" afterPath="$PROJECT_DIR$/lib/src/model.dart" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pubspec.lock" afterPath="$PROJECT_DIR$/pubspec.lock" />
-    </list>
+    <list default="true" id="a27c8518-6b40-400c-a7fb-5c45541d7366" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />

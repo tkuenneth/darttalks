@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var _m = null;
+    var _m;
     var _valid = false;
     if (strTemperature.length > 0) {
       try {

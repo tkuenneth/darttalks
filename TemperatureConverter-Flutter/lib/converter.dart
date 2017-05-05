@@ -26,9 +26,11 @@ double celsiusToFahrenheit(double celsius) => (celsius * 1.8) + 32;
 
 double fahrenheitToCelsius(double fahrenheit) => (fahrenheit - 32) * 5 / 9;
 
-String celsiusToString(double celsius) => _doubleToString(celsius, unitDegreesCelsius);
+String celsiusToString(double celsius) =>
+    _doubleToString(celsius, unitDegreesCelsius);
 
-String fahrenheitToString(double fahrenheit) => _doubleToString(fahrenheit, unitDegreesFahrenheit);
+String fahrenheitToString(double fahrenheit) =>
+    _doubleToString(fahrenheit, unitDegreesFahrenheit);
 
 String kelvinToString(double kelvin) => _doubleToString(kelvin, unitKelvin);
 
