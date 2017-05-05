@@ -32,7 +32,7 @@ class Model {
 
   get inUnit => _inUnit;
 
-  set inUnit(unit)=> _inUnit = unit;
+  set inUnit(unit) => _inUnit = unit;
 
   get outUnit => _outUnit;
 
