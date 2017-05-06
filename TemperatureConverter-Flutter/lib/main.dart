@@ -73,10 +73,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       decoration: _deco,
                       maxLines: 1,
                       autofocus: true,
+                      onSubmitted: (newValue) {
+                        setState(() {
+                          strTemperature = newValue.trim();
+                          calculate.onPressed();
+                        });
+                      },
                       onChanged: (newValue) {
                         setState(() {
                           strTemperature = newValue.trim();
-                          // calculate.enabled = strTemperature.length > 0;
                         });
                       })),
               new Container(
