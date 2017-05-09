@@ -36,6 +36,13 @@ class _MyHomePageState extends State<MyHomePage> {
   final Model model = new Model();
   String strTemperature = "";
 
+  void _setTemperature() {
+    setState(() {
+      model.inTemperature = stringToDouble(strTemperature);
+      model.calculateOutTemperature();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var _m;
@@ -51,14 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final _deco = new InputDecoration(hintText: _temperature, errorText: _m);
     final calculate = new FlatButton(
         child: new Text(_calculate),
-        onPressed: _valid
-            ? () {
-                setState(() {
-                  model.inTemperature = stringToDouble(strTemperature);
-                  model.calculateOutTemperature();
-                });
-              }
-            : null);
+        onPressed: _valid ? () => _setTemperature() : null);
 
     return new Scaffold(
         appBar: new AppBar(
@@ -73,12 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       decoration: _deco,
                       maxLines: 1,
                       autofocus: true,
-                      onSubmitted: (newValue) {
-                        setState(() {
-                          strTemperature = newValue.trim();
-                          calculate.onPressed();
-                        });
-                      },
+                      onSubmitted: (newValue) => _setTemperature(),
                       onChanged: (newValue) {
                         setState(() {
                           strTemperature = newValue.trim();
