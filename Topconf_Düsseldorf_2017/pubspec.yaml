@@ -1,0 +1,14 @@
+name: Topconf_Duesseldorf_2017
+description: samples for the talk Let's play Dart at Topconf Düsseldorf 2017
+version: 0.0.1
+homepage: https://www.thomaskuenneth.com
+author: Thomas Kuenneth <thomas@thomaskuenneth.com>
+
+environment:
+  sdk: '>=1.20.1 <2.0.0'
+
+#dependencies:
+#  path: ^1.4.1
+
+dev_dependencies:
+  test: ^0.12.0

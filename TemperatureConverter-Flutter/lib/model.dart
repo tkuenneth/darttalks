@@ -18,35 +18,22 @@ temperatureUnit enumFor(String str) {
 }
 
 class Model {
-  var _inUnit;
-  var _outUnit;
-  var _inTemperature;
-  var _outTemperatureAsString;
+  var inUnit;
+  var outUnit;
+  var inTemperature;
+  var outTemperature;
+  var outTemperatureAsString;
 
   Model() {
-    _inUnit = temperatureUnit.degreesCelsius;
-    _inTemperature = null;
-    _outUnit = temperatureUnit.degreesFahrenheit;
-    _outTemperatureAsString = "";
+    inUnit = temperatureUnit.degreesCelsius;
+    inTemperature = null;
+    outUnit = temperatureUnit.degreesFahrenheit;
+    outTemperatureAsString = "";
   }
-
-  get inUnit => _inUnit;
-
-  set inUnit(unit) => _inUnit = unit;
-
-  get outUnit => _outUnit;
-
-  set outUnit(unit) => _outUnit = unit;
-
-  get inTemperature => _inTemperature;
-
-  set inTemperature(temp) => _inTemperature = temp;
-
-  get outTemperatureAsString => _outTemperatureAsString;
 
   calculateOutTemperature() {
     if (inTemperature == null) {
-      _outTemperatureAsString = "";
+      outTemperatureAsString = "";
     } else {
       double outTemperatureInKelvin;
       switch (inUnit) {
@@ -64,15 +51,15 @@ class Model {
       }
       switch (outUnit) {
         case temperatureUnit.degreesCelsius:
-          _outTemperatureAsString =
+          outTemperatureAsString =
               celsiusToString(kelvinToCelsius(outTemperatureInKelvin));
           break;
         case temperatureUnit.degreesFahrenheit:
-          _outTemperatureAsString =
+          outTemperatureAsString =
               fahrenheitToString(kelvinToFahrenheit(outTemperatureInKelvin));
           break;
         case temperatureUnit.kelvin:
-          _outTemperatureAsString = kelvinToString(outTemperatureInKelvin);
+          outTemperatureAsString = kelvinToString(outTemperatureInKelvin);
           break;
         default:
           throw new ArgumentError("Unexpected output unit");
