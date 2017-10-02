@@ -1,7 +1,6 @@
 main() {
-  var a = "Hallo";
-  var b = " Hallo".substring(1);
-
-  print(a == b);
-  print(identical(a, b));
+  var a = 10;
+  print(a + 0.5);
+  a = "Hallo";
+  print(a);
 }

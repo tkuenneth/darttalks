@@ -1,10 +1,10 @@
-main() {
+import "dart:math";
 
-  var a = 10;
-  print(a + 0.5);
-  a = "Hallo";
-  print(a);
-
-  final double b = .0;
-  print(b);
+void main(List<String> args) {
+  var i = pow(2, 53);
+  print(i);
+  print(i + 1);
+  i *= -1;
+  print(i);
+  print(i - 1);
 }

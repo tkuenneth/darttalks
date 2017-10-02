@@ -1,9 +1,11 @@
 main() {
-  var a = new Object();
-  print(a.runtimeType);
+  var a = 2;
+  print("$a, ${square(a)}");
+  print("$a, ${reciprocal(a)}");
+}
 
-  var b = 1;
-  print(b.runtimeType);
-  print(b.runtimeType == Object);
-  print(b is Object);
+square(x) => x * x;
+
+reciprocal(x) {
+  return 1 / x;
 }

@@ -1,11 +1,9 @@
 main() {
-  var a = 2;
-  print("$a, ${square(a)}");
-  print("$a, ${reciprocal(a)}");
-}
+  for (int i = 1; i <= 3; i++) {
+    if (i < 2) {
+      continue;
+    }
 
-square(x) => x * x;
-
-reciprocal(x) {
-  return 1 / x;
+    print("Hello Dart $i");
+  }
 }

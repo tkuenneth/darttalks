@@ -1,13 +1,9 @@
-void main() {
-  var b1 = new Book("Android 7",
-      "978-3-8362-4200-4");
+main() {
+  var a = new Object();
+  print(a.runtimeType);
 
-  print("Titel: ${b1.title}, ISBN: ${b1.isbn}");
-}
-
-class Book {
-  var title;
-  var isbn;
-
-  Book(this.title, this.isbn);
+  var b = 1;
+  print(b.runtimeType);
+  print(b.runtimeType == Object);
+  print(b is Object);
 }

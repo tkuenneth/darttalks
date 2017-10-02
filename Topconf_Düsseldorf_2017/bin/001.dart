@@ -1,5 +1,5 @@
-void main(List<String> args) {
-  for (var a in args) {
-    print("$a");
+void main() {
+  for (int i = 0; i < 5; i++) {
+    print('hello ${i + 1}');
   }
 }

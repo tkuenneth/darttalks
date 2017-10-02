@@ -1,16 +1,7 @@
 main() {
-  var a = new C();
-  a.a = 42;
-  a.b = 24;
-  print("${a.a}, ${a.b}");
-}
+  var a = "Hallo";
+  var b = " Hallo".substring(1);
 
-class C {
-  var _b;
-
-  get a => 123;
-  set a(wert) => {}; 
- 
-  get b => _b;
-  set b(val) => _b = 321;
+  print(a == b);
+  print(identical(a, b));
 }
