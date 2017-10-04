@@ -1,11 +1,12 @@
 main() {
-  var a = 2;
-  print("$a, ${square(a)}");
-  print("$a, ${reciprocal(a)}");
+  print(function1(1, b: 2, c: 3));
+  print(function1(1, c: 3));
+  // print(function1(1, b: 2));
 }
 
-square(x) => x * x;
-
-reciprocal(x) {
-  return 1 / x;
+function1(num a, {num b = 42, num c}) {
+  print("a = $a");
+  print("b = $b");
+  print("c = $c");
+  return a + b + c;
 }

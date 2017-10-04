@@ -1,6 +1,7 @@
 main() {
-  var a = 10;
-  print(a + 0.5);
-  a = "Hallo";
-  print(a);
+  var a = 1;
+  dynamic b = 0.5;
+  print(a + b);
+  b = "Hallo";
+  print(b);
 }

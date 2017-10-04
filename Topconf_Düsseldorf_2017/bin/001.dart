@@ -1,5 +1,11 @@
-void main() {
-  for (int i = 0; i < 5; i++) {
-    print('hello ${i + 1}');
+main() {
+  for (var i = 0; i <= 3; i++) {
+    print(printer(i));
   }
 }
+
+printer(value) {
+  return "$value x $value = ${calc(value)}";
+}
+
+calc(value) => value * value;
