@@ -1,3 +1,4 @@
+/// Two more ways to use functions
 main() {
   // functions can be assigned to variables
   var f1 = (x) => x * x;
