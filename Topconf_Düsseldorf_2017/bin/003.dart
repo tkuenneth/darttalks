@@ -1,3 +1,5 @@
+/// This example shows how to use libraries
+
 import "dart:math";
 
 void main(List<String> args) {
@@ -8,3 +10,8 @@ void main(List<String> args) {
   print(i);
   print(i - 1);
 }
+
+/// Dart integers are mathematical integers, so in theory
+/// thry have no maximum value; to to transpilation to JavaScript
+/// Dart inherits the limits of JavaScript (numbers are IEEE 754
+/// floating point)

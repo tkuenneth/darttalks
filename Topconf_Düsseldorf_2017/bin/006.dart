@@ -9,3 +9,7 @@ main() {
   print(true.runtimeType);
   print(123.45.runtimeType);
 }
+
+/// Everything in Dart is an object
+/// During runtime everything is the instance of a class
+/// All classes are derived from Object

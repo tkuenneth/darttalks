@@ -1,7 +1,9 @@
+/// This example demoes functions with named parameters
+
 main() {
   print(function1(1, b: 2, c: 3));
   print(function1(1, c: 3));
-  // print(function1(1, b: 2));
+  print(function1(1, b: 2));
 }
 
 function1(num a, {num b = 42, num c}) {
