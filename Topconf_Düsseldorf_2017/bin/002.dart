@@ -1,3 +1,5 @@
+/// another simple example
+
 void main(List<String> args) {
   if (args.length < 1) {
     print("sorry, no args passed");
