@@ -3,7 +3,7 @@ description: A new flutter project.
 dependencies:
   flutter:
     sdk: flutter
-  intl: ^0.14.0
+  intl: ^0.15.7
 
 flutter:
   uses-material-design: true
