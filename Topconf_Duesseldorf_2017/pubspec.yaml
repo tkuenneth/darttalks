@@ -5,10 +5,9 @@ homepage: https://www.thomaskuenneth.com
 author: Thomas Kuenneth <thomas@thomaskuenneth.com>
 
 environment:
-  sdk: '>=1.20.1 <2.0.0'
+  sdk: '>=1.20.1'
 
 #dependencies:
 #  path: ^1.4.1
 
 dev_dependencies:
-  test: ^0.12.0
