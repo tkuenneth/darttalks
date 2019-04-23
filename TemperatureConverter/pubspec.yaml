@@ -1,14 +1,11 @@
 name: temperatureconverter
-version: 0.0.1
+version: 0.0.2
 description: a temperature converter
 author: Thomas Kuenneth <thomas@thomaskuenneth.com>
 homepage: https://www.thomaskuenneth.com
 dependencies:
-  intl: ^0.14.0
+  intl: ^0.15.8
 
 dev_dependencies:
-  browser: '>=0.10.0 <0.11.0'
-  dart_to_js_script_rewriter: '^1.0.1'
-
-transformers:
-- dart_to_js_script_rewriter
+  build_runner: ^1.1.2
+  build_web_compilers: ^1.0.0
