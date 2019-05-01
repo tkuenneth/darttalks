@@ -1,6 +1,6 @@
 import "dart:math";
 
-void main(List<String> args) {
+main() {
   var i = pow(2, 53);
   print(i);
   print(i + 1);
