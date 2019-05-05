@@ -32,7 +32,8 @@ class _HelloHomePageState extends State<HelloHomePage> {
         appBar: AppBar(
           title: Text(widget.title),
         ),
-        body: _first ? first() : second());
+        body: Padding(
+            padding: EdgeInsets.all(8.0), child: _first ? first() : second()));
   }
 
   first() {
@@ -67,17 +68,24 @@ Bitte verraten Sie mir Ihren Namen"""
   }
 
   second() {
-    var message = new Text("""
-Hallo $name. Ich freue mich, Sie zu treffen."""
-        .trim()
-        .replaceAll("\n", " "));
+    var message = new Text(
+      """
+Hallo $name. Ich freue mich, Sie zu treffen.
+"""
+          .trim()
+          .replaceAll("\n", " "),
+      style: TextStyle(fontSize: 32),
+      textAlign: TextAlign.center,
+    );
     var finish = new FlatButton(
       onPressed: () => {SystemNavigator.pop()},
       child: const Text("Fertig"),
     );
     var children = [
       message,
-      new Align(alignment: Alignment.centerRight, child: finish)
+      Visibility(
+          child: Align(alignment: Alignment.centerRight, child: finish),
+          visible: Theme.of(context).platform != TargetPlatform.iOS)
     ];
     return Column(children: children);
   }
