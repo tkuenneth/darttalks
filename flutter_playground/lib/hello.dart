@@ -87,6 +87,15 @@ Hallo $name. Ich freue mich, Sie zu treffen.
           child: Align(alignment: Alignment.centerRight, child: finish),
           visible: Theme.of(context).platform != TargetPlatform.iOS)
     ];
-    return Column(children: children);
+    return WillPopScope(
+      child: Column(children: children),
+      onWillPop: () {
+        setState(() {
+          _first = true;
+          name = "";
+        });
+        return new Future(() => false);
+      },
+    );
   }
 }
