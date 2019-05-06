@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:http/http.dart';
 import 'package:webfeed/webfeed.dart';
@@ -57,16 +58,8 @@ class _TelescopePageState extends State<TelescopePage> {
                 builder: (context) => TelescopeDetailsPage(item: _item)));
       },
       title: _createText(_item.title),
-      leading: _createSmallImage(_item),
       subtitle: _createText(_item.description),
     );
-  }
-
-  Widget _createSmallImage(RssItem item) {
-    if (item != null && item.enclosure != null) {
-      return CachedNetworkImage(imageUrl: item.enclosure.url, width: 48.0);
-    }
-    return null;
   }
 
   Widget _createText(String text) {
@@ -109,10 +102,16 @@ class _TelescopeDetailsPageState extends State<TelescopeDetailsPage> {
         appBar: AppBar(
           title: Text(widget.item.title),
         ),
-        body: _createUI());
+        body: _createImageFromRssItem(widget.item));
   }
 
-  Widget _createUI() {
+  Widget _createImageFromRssItem(RssItem item) {
+    if (item != null && item.enclosure != null) {
+      return Align(
+          child: CachedNetworkImage(
+              imageUrl: item.enclosure.url, fit: BoxFit.contain),
+          alignment: Alignment.topCenter);
+    }
     return null;
   }
 }
