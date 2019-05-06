@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:http/http.dart';
 import 'package:webfeed/webfeed.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 void main() => runApp(HelloApp());
 
@@ -49,9 +50,23 @@ class _TelescopePageState extends State<TelescopePage> {
   Widget _buildItem(BuildContext context, int index) {
     RssItem _item = _rssItems[index];
     return ListTile(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => TelescopeDetailsPage(item: _item)));
+      },
       title: _createText(_item.title),
+      leading: _createSmallImage(_item),
       subtitle: _createText(_item.description),
     );
+  }
+
+  Widget _createSmallImage(RssItem item) {
+    if (item != null && item.enclosure != null) {
+      return CachedNetworkImage(imageUrl: item.enclosure.url, width: 48.0);
+    }
+    return null;
   }
 
   Widget _createText(String text) {
@@ -75,5 +90,29 @@ class _TelescopePageState extends State<TelescopePage> {
     }
     _httpClient.close();
     return _success;
+  }
+}
+
+class TelescopeDetailsPage extends StatefulWidget {
+  TelescopeDetailsPage({Key key, @required this.item}) : super(key: key);
+
+  final RssItem item;
+
+  @override
+  _TelescopeDetailsPageState createState() => _TelescopeDetailsPageState();
+}
+
+class _TelescopeDetailsPageState extends State<TelescopeDetailsPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(widget.item.title),
+        ),
+        body: _createUI());
+  }
+
+  Widget _createUI() {
+    return null;
   }
 }
